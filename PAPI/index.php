@@ -2,7 +2,7 @@
 
 	if(isset($_POST['BtnPaste']))
 	{
-		$get_paste_json = @file_get_contents("http://localhost/papi/submit.php?title=" . $_POST['title'] . "&message=" . urlencode($_POST['Content']));
+		$get_paste_json = file_get_contents("http://2cash.pw/papi/submit.php?title=" . $_POST['title'] . "&message=" . urlencode($_POST['Content']));
 		$paste_json = json_decode($get_paste_json);
 		echo $paste_json->Response;
 		
@@ -13,6 +13,7 @@
 	}
 
 
+
 ?>
 
 <h1>PAPI Test Page</h1>
@@ -20,7 +21,7 @@
 <form action="" method="POST">
 Title:<br><input placeholder="Untitled" name="title"></input><br>
 Content:<br><textarea rows="25" cols="125" placeholder="NULL" name="Content"></textarea><br>
-<button type="submit" name="BtnPaste">Paste this</button>
+<input type="submit" name="BtnPaste">
 </form> 
 
 
