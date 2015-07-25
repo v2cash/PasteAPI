@@ -9,6 +9,17 @@
 
 */
 	
+		// This forcefully overrides all string limits, allowing us to paste code that is over 50million characters long.
+  if($_SERVER['QUERY_STRING'])
+  {
+  $_GET = array();
+  $params = explode('&', $_SERVER['QUERY_STRING']);
+  foreach ($params as $pair2) {
+    list($key, $value) = explode('=', $pair2);
+    $_GET[urldecode($key)] = urldecode($value);
+  }
+  }
+	
 	// Dont let the fuckers exploit our code!
 	header("Content-type: text/plain");
 	

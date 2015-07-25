@@ -14,6 +14,7 @@ include("functions.php");
 
 	$MESSAGE = $_GET['message'];
 	$TITLE = $_GET['title'];
+	//echo $MESSAGE;
 	
 	if(!$MESSAGE || !$TITLE)
 	{
